@@ -1,0 +1,42 @@
+main: token.o display.o main.o cd.o pwd.o echo.o pinfo.o remindme.o exit.o clock_bonus.o linked_list.o user_def_commands.o
+	gcc -g token.o display.o main.o cd.o pwd.o echo.o  pinfo.o remindme.o exit.o clock_bonus.o  linked_list.o user_def_commands.o -o main
+display.o : headers.h display.c
+		gcc -g display.c -c -o display.o
+
+token.o : headers.h token.c
+		gcc -g token.c -c -o token.o
+
+pwd.o : headers.h pwd.c
+		gcc -g pwd.c -c -o pwd.o
+
+exit.o : headers.h exit.c
+		gcc -g exit.c -c -o exit.o
+
+echo.o: headers.h echo.c
+		gcc -g echo.c -c -o echo.o
+
+remindme.o: headers.h remindme.c
+		gcc -g remindme.c -c -o remindme.o
+
+clock_bonus.o: headers.h clock_bonus.c
+		gcc -g clock_bonus.c -c -o clock_bonus.o
+
+linked_list.o : headers.h linked_list.c
+		gcc -g linked_list.c -c -o linked_list.o
+
+pinfo.o: headers.h pinfo.c
+		gcc -g pinfo.c -c -o pinfo.o
+
+cd.o: headers.h cd.c
+		gcc -g cd.c -c -o cd.o
+
+main.o: headers.h main.c
+		gcc -g main.c -c -o main.o
+
+user_def_commands.o : headers.h user_def_commands.c
+	gcc -g user_def_commands.c -c -o user_def_commands.o
+
+.PHONY : clean
+
+clean :
+		rm -f main display.o token.o pwd.o exit.o echo.o remindme.o clock_bonus.o linked_list.o pinfo.o cd.o main.o user_def_commmands.o
